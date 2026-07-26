@@ -7,6 +7,7 @@ public:
         while(start<=end){
             mid=start+(end-start)/2;
             if(nums[mid]==target){
+                
                 return mid;
             }
             else if(nums[mid]>target){
