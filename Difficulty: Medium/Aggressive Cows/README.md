@@ -1,0 +1,10 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/aggressive-cows/1">Aggressive Cows</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18.6667px;">Given an integer array <strong>arr[]</strong>, which denotes the positions of stalls. All the positions are distinct. There are<strong> k</strong> aggressive cows.</span></p>
+<p><span style="font-size: 18.6667px;">Assign the cows to the stalls such that the<strong> minimum</strong> distance between any two cows is <strong>maximized.</strong></span></p>
+<p><span style="font-size: 14pt;"><strong>Examples:</strong></span></p>
+<pre><span style="font-size: 14pt;"><strong style="font-size: 14pt;">Input: </strong><span style="font-size: 14pt;">arr[] = [1, 2, 4, 8, 9], k = 3
+</span><strong style="font-size: 14pt;">Output: </strong><span style="font-size: 14pt;">3
+</span><span style="font-size: 18.6667px;"><strong>Explanation: </strong>The first cow can be placed at arr[0], the second at arr[2], and the third at arr[3]. The minimum distance between any two cows is 3 (between arr[0] and arr[2]), which is the maximum possible among all valid arrangements.</span></span></pre>
+<pre><span style="font-size: 14pt;"><strong>Input: </strong>arr[] = [10, 1, 2, 7, 5], k = 3
+<strong>Output: </strong>4
+<strong>Explanation: </strong>The first cow can be placed at arr[0], the second at arr[1], and the third at arr[4]. In this arrangement, the minimum distance between any two cows is 4 (between arr[1] and arr[4]), which is the maximum possible among all valid arrangements.</span></pre>
+<p><span style="font-size: 14pt;"><strong>Constraints:</strong></span><br><span style="font-size: 14pt;">2 ≤ arr.size() ≤ 10<sup>6</sup><br></span><span style="font-size: 18.6667px;">0 ≤ arr[i] ≤ 10<sup>8</sup></span><br><span style="font-size: 14pt;">2 ≤ k ≤ arr</span><span style="font-size: 18.6667px;">.size()</span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Binary Search</code>&nbsp;
