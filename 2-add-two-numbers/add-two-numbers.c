@@ -38,8 +38,8 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     if(carry){
         temp->next=malloc(sizeof(struct ListNode));
         temp=temp->next;
-        temp->next=NULL;
         temp->val=carry;
     }
+    temp->next=NULL;
     return NewNode->next;
 }
