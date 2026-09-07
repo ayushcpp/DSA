@@ -18,6 +18,8 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
         slow=slow->next;
         fast=fast->next;
     }
+    struct ListNode *deleteNode = slow->next;
     slow->next=slow->next->next;
+    free(deleteNode);
     return head;
 }
