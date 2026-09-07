@@ -6,40 +6,26 @@
  * };
  */
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
-    int carry=0,sum=0;
-    struct ListNode * t1=l1,*t2=l2;
-    struct ListNode *NewNode=malloc(sizeof(struct ListNode));
-    struct ListNode * temp=NewNode;
-    while(t1!=NULL && t2!=NULL){
-        sum=t1->val +t2->val +carry;
-        t1->val=sum%10;
-        carry=sum/10;
-        temp->next=t1;
-        temp=t1;
-        t1=t1->next;
-        t2=t2->next;
+    int carry = 0;
+    struct ListNode dummy;
+    struct ListNode *temp = &dummy;
+    dummy.next = NULL;
+    while (l1 != NULL || l2 != NULL || carry != 0) {
+        int sum = carry;
+
+        if (l1 != NULL) {
+            sum += l1->val;
+            l1 = l1->next;
+        }
+        if (l2 != NULL) {
+            sum += l2->val;
+            l2 = l2->next;
+        }
+        temp->next = malloc(sizeof(struct ListNode));
+        temp = temp->next;
+        temp->val = sum % 10;
+        carry = sum / 10;
+        temp->next = NULL;
     }
-    while(t1){
-        sum=t1->val+carry;
-        t1->val=sum%10;
-        carry=sum/10;
-        temp->next=t1;
-        temp=t1;
-        t1=t1->next;
-    }
-    while(t2){
-        sum=t2->val+carry;
-        t2->val=sum%10;
-        carry=sum/10;
-        temp->next=t2;
-        temp=t2;
-        t2=t2->next;
-    }
-    if(carry){
-        temp->next=malloc(sizeof(struct ListNode));
-        temp=temp->next;
-        temp->val=carry;
-    }
-    temp->next=NULL;
-    return NewNode->next;
+    return dummy.next;
 }
