@@ -9,48 +9,23 @@ struct ListNode* oddEvenList(struct ListNode* head) {
     if(head==NULL || head->next==NULL){
         return head;
     }
-    struct ListNode*temp=head;
-    int size=0,capacity=2;
-    int *arr;
-    arr=malloc(capacity*sizeof(int));
-    while(temp->next!=NULL){
-        if(temp->next->next!=NULL){
-            if(size==capacity){
-                capacity*=2;
-                int *newArr=realloc(arr,capacity*sizeof(int));
-                arr=newArr;
-            }
-            arr[size]=temp->next->next->val;
-            size++;
-            temp=temp->next->next;
+    struct ListNode * even=head->next;
+    struct ListNode *odd =head;
+    struct ListNode*evenHead=head->next;
+    while(even!=NULL && odd!=NULL){
+        if(odd->next!=NULL && even->next!=NULL){
+            odd->next=even->next;
+            odd=odd->next;
+            even->next=odd->next;
+            even=even->next;
         }
         else{
             break;
         }
     }
-    temp=head->next;
-    while(temp != NULL) {
-        if(size == capacity) {
-            capacity *= 2;
-            int *newArr = realloc(arr, capacity * sizeof(int));
-            arr = newArr;
-        }
-
-        arr[size] = temp->val;
-        size++;
-
-        if(temp->next == NULL)
-        break;
-
-        temp = temp->next->next;
+    odd->next=evenHead;
+    if(even!=NULL){
+        even->next=NULL;
     }
-    temp=head->next;
-    int i=0;
-    while(temp!=NULL && i<size){
-        temp->val=arr[i];
-        temp=temp->next;
-        i++;
-    }
-    free(arr);
     return head;
 }
